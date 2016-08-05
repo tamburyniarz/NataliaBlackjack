@@ -7,14 +7,36 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class Glowna extends AppCompatActivity {
 
+    Button button;
+    ImageView imageView;
+
+
     int kaasa=0;
     int budzet = 10000;
     Context context;
+
+    public void addListenerButton(){
+        imageView = (ImageView) findViewById(R.id.jew);
+
+        button = (Button) findViewById(R.id.btnChangeImage);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "WYIBERZ KWOTE DO ZAKLADU", Toast.LENGTH_SHORT).show();
+                imageView.setImageResource(R.drawable.jew2);
+                System.out.println("Click");
+            }
+        });
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +45,7 @@ public class Glowna extends AppCompatActivity {
         TextView budzetT = (TextView) findViewById(R.id.budzet);
         String budzetS = Integer.toString(budzet);
         budzetT.setText(budzetS);
+        addListenerButton();
     }
 
     @Override
