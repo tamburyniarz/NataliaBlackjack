@@ -15,8 +15,15 @@ public class Karta {
     private CardNumberEnum number;
     private CardColorEnum color;
 
+    private int id;
+
     public Karta(CardNumberEnum number, CardColorEnum color){
         this.number = number;
         this.color = color;
+
+        ImageView image = new ImageView(Glowna.this);
+        image.setImageResource(R.drawable.penguin_raspberry)
     }
+
+
 }

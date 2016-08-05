@@ -2,5 +2,6 @@
     <string name="app_name">BlackJack3</string>
     <string name="action_settings">Settings</string>
     <string name="obstaw">OBSTAW</string>
+    <string name="addcard">ADD CARD</string>
     <string name="title_activity_zaklad">Zaklad</string>
 </resources>

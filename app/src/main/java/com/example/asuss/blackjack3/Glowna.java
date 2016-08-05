@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,24 +20,27 @@ public class Glowna extends AppCompatActivity {
     ImageView imageView;
 
 
-    int kaasa=0;
+    private LinearLayout cardLine1;
+    private LinearLayout cardLine2;
+    private int cardCounter = 0;
+
+    int kaasa = 0;
     int budzet = 10000;
     Context context;
 
-    public void addListenerButton(){
-        imageView = (ImageView) findViewById(R.id.jew);
+    public void addCard(View v) {
+        ImageView image = new ImageView(Glowna.this);
+        if (cardCounter <= 2) {
+            image.setImageResource(R.drawable.penguin_raspberry);
 
-        button = (Button) findViewById(R.id.btnChangeImage);
+            cardLine1.addView(image);
+        }
+        if (cardCounter > 2 && cardCounter <= 5) {
+            image.setImageResource(R.drawable.penguin_cinema);
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "WYIBERZ KWOTE DO ZAKLADU", Toast.LENGTH_SHORT).show();
-                imageView.setImageResource(R.drawable.jew2);
-                System.out.println("Click");
-            }
-        });
-
+            cardLine2.addView(image);
+        }
+        cardCounter++;
     }
 
     @Override
@@ -43,9 +48,12 @@ public class Glowna extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_glowna);
         TextView budzetT = (TextView) findViewById(R.id.budzet);
+
+        cardLine1 = (LinearLayout) findViewById(R.id.cardline1);
+        cardLine2 = (LinearLayout) findViewById(R.id.cardline2);
+
         String budzetS = Integer.toString(budzet);
         budzetT.setText(budzetS);
-        addListenerButton();
     }
 
     @Override
@@ -70,9 +78,9 @@ public class Glowna extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void obstaw(View v){
+    public void obstaw(View v) {
         TextView text = (TextView) findViewById(R.id.kasa);
-        if(text.getText().toString().isEmpty()){
+        if (text.getText().toString().isEmpty()) {
             Toast.makeText(getApplicationContext(), "WYIBERZ KWOTE DO ZAKLADU", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -88,24 +96,25 @@ public class Glowna extends AppCompatActivity {
         TextView budzetT = (TextView) findViewById(R.id.budzet);
         budzetT.setText(budzetS);
         text.setText("");
-        kaasa=0;
+        kaasa = 0;
     }
 
     int budzet_temp = budzet;
-   public void jeden(View v){
-       TextView text = (TextView) findViewById(R.id.kasa);
-        kaasa = kaasa+1;
+
+    public void jeden(View v) {
+        TextView text = (TextView) findViewById(R.id.kasa);
+        kaasa = kaasa + 1;
         String kasa = Integer.toString(kaasa);
         text.setText(kasa);
-       budzet_temp = budzet_temp - 1;
-       String budzetS = Integer.toString(budzet_temp);
-       TextView budzetT = (TextView) findViewById(R.id.budzet);
-       budzetT.setText(budzetS);
+        budzet_temp = budzet_temp - 1;
+        String budzetS = Integer.toString(budzet_temp);
+        TextView budzetT = (TextView) findViewById(R.id.budzet);
+        budzetT.setText(budzetS);
     }
 
-    public void piec(View v){
+    public void piec(View v) {
         TextView text = (TextView) findViewById(R.id.kasa);
-        kaasa = kaasa +5;
+        kaasa = kaasa + 5;
         String kasa = Integer.toString(kaasa);
         text.setText(kasa);
         budzet_temp = budzet_temp - 5;
