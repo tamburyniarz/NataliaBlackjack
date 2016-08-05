@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_zaklad"
+    tools:context="com.example.asuss.blackjack3.Zaklad">
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="Podwojenie"
+        android:id="@+id/podwojenie"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:onClick="podwojenie" />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="Rozdwojenie"
+        android:id="@+id/rozdwojenie"
+        android:layout_above="@+id/podwojenie"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="90dp"
+        android:layout_height="40dp"
+        android:text="Nie"
+        android:id="@+id/nie"
+        android:textColor="#f40909"
+        android:layout_alignTop="@+id/podwojenie"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="90dp"
+        android:layout_height="40dp"
+        android:text="Dobierz"
+        android:id="@+id/dobierz"
+        android:textColor="#15f909"
+        android:layout_alignTop="@+id/rozdwojenie"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:id="@+id/zaklad"
+        android:layout_above="@+id/rozdwojenie"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="103dp"
+        android:layout_height="40dp"
+        android:text="Zakład"
+        android:textSize="30dp"
+        android:id="@+id/textView"
+        android:layout_above="@+id/zaklad"
+        android:layout_toEndOf="@+id/rozdwojenie" />
+
+    <TextView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/za_ile"
+        android:layout_alignBottom="@+id/podwojenie"
+        android:layout_below="@+id/rozdwojenie"
+        android:layout_alignEnd="@+id/textView" />
+
+</RelativeLayout>
